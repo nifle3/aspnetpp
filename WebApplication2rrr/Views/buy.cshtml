@@ -1,0 +1,20 @@
+﻿@model WebApplication2rrr.Models.Phone
+@{
+    ViewData["Title"] = "Список смартфонов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Buy</title>
+    </head>
+    <body>
+        <p>Модель телефона @Model.Name</p>
+        <p>Цена @Model.Price</p>
+        <form method="post" asp-controller="Buy" asp-action="PostBuy">
+            <input type="text" placeholder="адрес" name="adress" />
+            <input type="submit" value="Отправить"/>
+        </form>
+    </body>
+</html>

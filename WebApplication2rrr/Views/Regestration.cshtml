@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Regestration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post" asp-action="PostSetUser" asp-controller="Registration" id="form" style="max-width:50%; position: fixed; left: 40%;">
+    <div class="form-group">
+        <label>Имя</label>
+     <p><input class="form-control" type="text" name="Name" placeholder="Имя" /></p>
+    </div>
+    <div class="form-group">
+        <label>Логин</label>
+    <p><input class="form-control" type="text" name="Login" placeholder="Логин"/></p>
+    </div>
+    <div>
+        <label>Пароль</label>
+        <p><input class="form-control"  type="password" name="Password" placeholder="Пароль" id="pass" /></p>
+    </div>
+    <div>
+        <label>Муж/Жен</label>
+        <p><input class="form-check-input" type="checkbox" name="Sex" id="sexbtn"/><span id="sex" class="ms-2">Мужчина</span></p>
+    </div>
+    <div>
+        <label>Роль</label>
+        <p>
+            <input name="Role" class="form-control" value="Не админ" readonly>
+        </p>
+    </div>
+    <div>
+        <label>Номер телефона</label>
+        <p><input  class="form-control" type="text" name="NumberTelephone" placeholder="Номер телефона" id="phone" /></p>
+    </div>
+    <div class="form-group">
+        <p><input class="btn btn-primary"  type="submit" value="Отправить" /></p>
+    </div>
+</form>
+@section Scripts{
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            $("#form").on('submit',function(event){
+                event.preventDefault();
+                var value = document.getElementById('phone').value;
+                const exp = /^(\+7|8)[0-9]{10}$/;
+                if (!exp.test(value)){
+                    alert("Неверный номер телефона");
+                    return false;
+                }
+                this.submit();
+                return true;
+            });
+            $("#sexbtn").click(function(){
+                if (document.getElementById('sexbtn').checked){
+                    document.getElementById("sex").innerHTML = "<span id='sex' class='ms-2'>Женщина</span>";
+                }
+                else{
+                    document.getElementById("sex").innerHTML = "<span id='sex' class='ms - 2'>Мужчина</span>";
+                }
+            });
+        }); 
+    </script>
+}

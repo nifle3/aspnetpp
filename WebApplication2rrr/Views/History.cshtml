@@ -1,0 +1,18 @@
+﻿@model List<Phone>
+@{
+    ViewData["Title"] = "History";
+}
+
+<h1>History</h1>
+
+@foreach(var a in Model)
+{
+    <div class="card border-primary mb-3">
+        <div class="card-header">Цена: @a.Price р</div>
+        <div class="card-body text-primary">
+            <h5 class="card-title">Компания: @a.Company</h5>
+            <h4 class="card-text">Модель: @a.Name</h4>
+        </div> 
+    </div>
+}
+

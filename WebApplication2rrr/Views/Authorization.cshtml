@@ -1,0 +1,21 @@
+﻿@model string?
+@{
+    ViewData["Title"] = "Authorization";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<form method="post" asp-action="Authorization" asp-controller="Auth" style="max-width:50%; position: fixed; left: 40%;">
+    <div class="form-group">
+        <label>Логин</label>
+        <p><input class="form-control" name="login" type="text" placeholder="Логин" /></p>
+    </div>
+    <div class="form-group">
+        <label>Пароль</label>
+        <p><input class="form-control"  name="password" type="text" placeholder="Пароль" /></p>
+    </div>
+    <div class="form-group">
+        <p><input class="btn btn-primary" value="Отправить" type="submit"/></p>
+    </div>
+</form>
+@if(Model is not null){
+<p>@Model</p>
+}

@@ -1,0 +1,50 @@
+﻿@model WebApplication2rrr.Models.User
+@{
+    ViewData["Title"] = "Personal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model != null)
+{
+    <form method="post" asp-action="PostUdate" asp-controller="PersonalCabinet">
+        <div class="form-group">
+        <p><input name="name" value="@Model.Name" type="text"/> Имя</p>
+        </div>
+            <p>@Model.Role Роль</p>
+        <div>
+            <p>Пол @if (Model.Sex)
+                {
+                    <span id="sex">Женщина @Model.Sex</span>
+                }
+                else
+                {
+                    <span id="sex">Мужчина</span>
+                }
+            </p>
+        </div>
+        <div>
+        <p><input name="phone" value="@Model.NumberTelephone" type="text" /> Телефон</p>
+        </div>
+        <div>
+        <p><input type="submit" value="Поменять"/></p>
+        </div>
+    </form>
+    <a asp-action="GetHistory" asp-controller="PersonalCabinet">История</a>
+    <p><a class="btn btn-primary" asp-action="GetExit" asp-controller="PersonalCabinet">Выйти</a></p>
+}
+else{
+    <p>Пользователь не задан</p>
+}
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript"> 
+        $("#sexbtn").click(function(){
+            if (document.getElementById('sexbtn').checked){
+                document.getElementById("sex").innerHTML = "<span id='sex' class='ms-2'>Женщина</span>";
+            }
+            else{
+                document.getElementById("sex").innerHTML = "<span id='sex' class='ms - 2'>Мужчина</span>";
+            }
+        });
+    </script>
+}
+

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Site.com | @ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header style="background-color:orange;">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <h1 class="navbar-brand ms-3">Телефоны</h1>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 ms-3">
+                        <li class="nav-item ps-3">
+                            <a class="nav-link" asp-action="index" asp-controller="Home">Каталог</a>
+                        </li>
+                        <li class="nav-item ps-3">
+                            <a class="nav-link" asp-action="index" asp-controller="Auth">Вход</a>
+                        </li>
+                        <li class="nav-item ps-3">
+                            <a class="nav-link" asp-controller="Registration" asp-action="Index">Регистрация</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-action="index" asp-controller="PersonalCabinet">Личный кабинет</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="m-4">
+        @RenderBody()
+        @RenderSection("Scripts", required: false)
+    </div>
+</body>
+</html>

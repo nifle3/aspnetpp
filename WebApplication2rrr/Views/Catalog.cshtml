@@ -1,0 +1,25 @@
+﻿@model IEnumerable<WebApplication2rrr.Models.Phone>
+@{
+    ViewData["Title"] = "Catalog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach(var a in Model)
+{
+    <div class="card border-primary mb-3 m-4">
+        <div class="card-header">@a.Company</div>
+        <div class="card-body text-primary">
+            <h5 class="card-title">@a.Name</h5>
+            <h4 class="card-text">@a.Price</h4>
+            @if (ViewBag.ActiveUser is null)
+            {
+                <p><span class="" href="">Купить</span></p>
+            }
+            else
+            {
+                <p><a class="" href="~/Buy/GetBuy/@a.PhoneId">Купить</a></p>
+            }
+        </div> 
+    </div>
+}
+
+
